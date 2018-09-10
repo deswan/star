@@ -10,9 +10,6 @@ const defaultOptions = {
     root: config.markdownDir
 }
 
-function getAllArticlesName() {
-    return pool.getAllArticles();
-}
 
 function mapToList(map){
     return Object.keys(map).reduce((target, key) => {
