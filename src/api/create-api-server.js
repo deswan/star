@@ -1,7 +1,8 @@
 const isProd = process.env.NODE_ENV === 'production';
 
 import axios from 'axios';
-let host = 'http://127.0.0.1:8000';
+
+let host = `http://${process.env.API_SERVICE_HOST || '127.0.0.1'}:8000`;
 
 axios.defaults.baseURL = host;
 axios.defaults.timeout = 10000;

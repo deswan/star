@@ -1,0 +1,32 @@
+version: "3"
+services:
+
+  web:
+    build: 
+      context: "."
+      args:
+        API_SERVICE_HOST: api
+    image: "star-blog"
+    ports:
+      - "8080:8080"
+    depends_on:
+      - api
+    networks: 
+      - my_app
+    environment:
+      API_SERVICE_HOST: api
+    
+
+  api:
+    build: 
+      context: "."
+      dockerfile: "Dockerfile.api"
+    image: "star-blog-api"
+    ports:
+      - "8000:8000"
+    networks: 
+      - my_app
+
+networks:
+   my_app:
+     driver: bridge

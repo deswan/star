@@ -27,10 +27,6 @@
 					<img src="~assets/arrow-right.svg" alt="">
 				</a>
 			</div>
-			<div class="inform">
-				<span class="views">12 Views</span>
-				<span id="love">e</span>
-			</div>
 		</footer>
 	</div>
 </template>
@@ -46,8 +42,8 @@ export default {
   },
   data() {
     return {
-      page: 0,
-      totalPage: 0
+      page: 1,
+      totalPage: 1
     };
 	},
 	beforeRouteUpdate(to, from, next){
@@ -249,6 +245,7 @@ export default {
 .footer {
   flex: none;
   overflow: hidden;
+  padding-bottom: 50px;
 }
 .inform {
   position: relative;
@@ -257,11 +254,5 @@ export default {
     font-size: 18px;
     color: #999;
   }
-}
-#love {
-  position: absolute;
-  font-size: 18px;
-  color: #999;
-  margin-left: 200px;
 }
 </style>

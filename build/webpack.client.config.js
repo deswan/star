@@ -20,7 +20,8 @@ const config = merge(base, {
   plugins: [
     // strip dev-only code in Vue source
     new webpack.DefinePlugin({
-      'process.env.VUE_ENV': '"client"'
+      'process.env.VUE_ENV': '"client"',
+      'process.env.API_SERVICE_HOST': JSON.stringify(process.env.API_SERVICE_HOST)
     }),
     new VueSSRClientPlugin()
   ]

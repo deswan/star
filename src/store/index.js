@@ -8,9 +8,7 @@ export function createStore(){
     strict: true,
     state: {
         allArticles:{},
-        article:{
-            document: '',
-        }
+        article:{}
     },
     mutations: {
         SET_ARTICLE(state, article){
@@ -22,7 +20,6 @@ export function createStore(){
     },
     actions: {
         FETCH_ARTICLE({ commit }, { id }){
-            console.log(id)
             return api.get(`/api/article`, {
                 params: { id }
             }).then(res=>{

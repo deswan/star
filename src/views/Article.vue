@@ -4,10 +4,10 @@
             <img src="../assets/star.png" alt="" class="header-img">
         </header>
         <section class="title">
-            <h1 class="title-h1">{{article.meta.title}}</h1>
+            <h1 class="title-h1">{{article.title}}</h1>
             <p class="title-date">
                 <img src="../assets/time.svg" class="title-date-logo" alt="">
-                <span style="vertical-align:middle">{{article.meta.modified_time | date}}</span>   
+                <span style="vertical-align:middle">{{article.modified_date}}</span>   
             </p>
         </section>
         <section class="body md" v-html="article.document">
@@ -21,11 +21,6 @@ export default {
     name: 'StarArticle',
     async asyncData({ store, route }){
         return store.dispatch('FETCH_ARTICLE', {id: route.params.id})
-    },
-    filters:{
-        date(time){
-            return dayjs(time).format('YYYY-MM-DD');
-        }
     },
     data(){
         return {

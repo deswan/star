@@ -74,7 +74,7 @@ app.use("/api/*", function(req, res) {
   apiProxy.web(req, res, {
     target: {
       port: 8000,
-      host: "localhost"
+      host: process.env.API_SERVICE_HOST || 'localhost'
     }
   });
 });
@@ -86,6 +86,7 @@ app.use("/api/*", function(req, res) {
 // headers.
 // 1-second microcache.
 // https://www.nginx.com/blog/benefits-of-microcaching-nginx/
+// https://www.npmjs.com/package/route-cache
 app.use(microcache.cacheSeconds(1, req => useMicroCache && req.originalUrl))
 
 function render (req, res) {

@@ -35,8 +35,6 @@ router.onReady(() => {
     const matched = router.getMatchedComponents(to)
     const prevMatched = router.getMatchedComponents(from)
     let diffed = false
-    console.log(matched,prevMatched)
-    console.log('activated', activated)
     const activated = matched.filter((c, i) => {
       return diffed || (diffed = (prevMatched[i] !== c))
     })

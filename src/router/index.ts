@@ -8,7 +8,6 @@ Vue.use(Router)
 export function createRouter(){
   return new Router({
     mode: 'history',
-    base: process.env.BASE_URL,
     // scrollBehavior (to, from, savedPosition) {
     //   return savedPosition || {
     //     x: 0,

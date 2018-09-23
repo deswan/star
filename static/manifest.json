@@ -1,8 +1,8 @@
 {
-  "name": "Vue Hackernews 2.0",
-  "short_name": "Vue HN",
+  "name": "Star`s Blog",
+  "short_name": "Star`s Blog",
   "start_url": "/",
   "background_color": "#f2f3f5",
   "display": "standalone",
-  "theme_color": "#f60"
+  "theme_color": "red"
 }
