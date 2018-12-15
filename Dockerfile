@@ -1,5 +1,7 @@
 FROM node:10
 
+RUN npm config set registry https://registry.npm.taobao.org
+
 RUN mkdir -p /home/node/app
 WORKDIR /home/node/app
 
