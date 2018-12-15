@@ -6,6 +6,10 @@ a, a:link{
     text-decoration: none;
 }
 .md{
+    line-height: 1.8;
+    h1, h2, h3, h4{
+        margin-top: 2em;
+    }
     a{
         color: #961723;
         &:hover{
@@ -27,13 +31,16 @@ a, a:link{
         width: 10px;
         background: #ddd;
     }
-    p > code{
+    p > code, li > code{
         background: #f7f7f7;
         padding: 5px;
         border-radius: 5px;
         font-family: "PT Mono", Consolas, Monaco, Menlo, "-apple-system", BlinkMacSystemFont,"微软雅黑", Verdana, Arial, Helvetica, sans-serif;
         word-break: break-all;
         color: #ca342e;
+    }
+    code{
+        font-size: 16px;
     }
     img{
         display: block;

@@ -5,14 +5,16 @@
 		</header>
 		<section class="main">
 			<div class="year-list" v-for="yearData in items" :key="yearData.year">
-				<div class="year">- {{yearData.year}} -</div>
-				<router-link class="article-item" v-for="article in yearData.items" :key="article.name" :to="{name: 'article', params:{id: article.name}}">
-					<h1>{{article.title}}</h1>
-					<p class="article-item-date">
-							<img src="../assets/time.svg" class="article-item-date-logo" alt="">
-							<span style="vertical-align: middle">{{article.modified_date}}</span>   
-					</p>
-				</router-link>
+				<div class="year" v-if="currentYear != yearData.year">- {{yearData.year}} -</div>
+                <div class="article-item" v-for="article in yearData.items" :key="article.name">
+                    <router-link :to="{name: 'article', params:{id: article.name}}">
+                        <h2 class="article-title">{{article.title}}</h2>
+                    </router-link>
+                    <p class="article-date">
+                        <img src="../assets/time.svg" class="article-date-logo" alt="">
+                        <span class="article-date-text">{{article.modified_date}}</span>   
+                    </p>
+                </div>
 			</div>
 		</section>
 		<footer class="footer">
@@ -43,7 +45,8 @@ export default {
   data() {
     return {
       page: 1,
-      totalPage: 1
+      totalPage: 1,
+      currentYear: dayjs().format('YYYY')
     };
 	},
 	beforeRouteUpdate(to, from, next){
@@ -125,55 +128,54 @@ export default {
   }
 }
 .main {
-  flex: auto;
-  max-width: 100%;
-  width: 700px;
-  margin: 20px auto 0;
+    flex: auto;
+    max-width: 90%;
+    width: 700px;
+    margin: 20px auto 0;
 }
 .year-list:not(:first-child){
 	margin-top: 80px;
 }
 .year {
-  user-select: none;
-  margin: 10px auto;
-  font-size: 20px;
-  font-weight: bold;
-  color: #ddd;
-  line-height: 1;
+    user-select: none;
+    margin: 10px auto;
+    font-size: 20px;
+    font-weight: bold;
+    color: #ddd;
+    line-height: 1;
 }
 .article-item {
 	display: block;
-	max-width: 100%;
-	width: 400px;
 	padding: 10px 0;
-	margin: 40px auto 0;
-	color: #666;
+	margin: 40px 20px 0;
 
 	&:first-of-type{
 		margin-top: 0;
 	}
-
-	&:hover{
-		h1{
-			color: #999;
-		}
-	}
 	
-	h1{
-	  transition: color ease .2s;
+	.article-title{
+	    transition: color ease .2s;
 		font-size: 24px;
 		font-weight: normal;
 		margin: 0;
+    	color: #666;
+
+        &:hover{
+                color: #999;
+        }
 	}
 
-	.article-item-date {
+	.article-date {
 		text-align: center;
-		margin: 0;
-		margin-top: 5px;
+		margin-top: 10px;
+    	color: #666;
 	}
-	.article-item-date-logo {
+	.article-date-logo {
 		height: 16px;
 		margin-right: 5px;
+		vertical-align: middle;
+	}
+	.article-date-text {
 		vertical-align: middle;
 	}
 }
@@ -181,14 +183,14 @@ export default {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-  margin-top: 60px;
-  font-size: 20px;
-  color: #4a4a4a;
-  a:link {
+    margin-top: 60px;
+    font-size: 20px;
     color: #4a4a4a;
-  }
-  .pagination-last,
-  .pagination-next {
+    a:link {
+        color: #4a4a4a;
+    }
+    .pagination-last,
+    .pagination-next {
 		font-size: 0;
 		transition: all ease .5s;
 		transform: translateX(0);
@@ -199,26 +201,26 @@ export default {
 		}
 	}
 	.pagination-last img,
-  .pagination-next img{
+    .pagination-next img{
 		width: 40px;
 		opacity: .8;
-  }
-  .pagination-last {
+    }
+    .pagination-last {
 		margin-right: 20px;
 		&:not(.disabled):hover{
 			transform: translateX(-5px);
 		}
-  }
-  .pagination-next {
+    }
+    .pagination-next {
 		margin-left: 20px;
 		&:not(.disabled):hover{
 			transform: translateX(5px);
 		}
-  }
-  .pagination-body {
-    display: inline-block;
-  }
-  .pagination-number {
+    }
+    .pagination-body {
+        display: inline-block;
+    }
+    .pagination-number {
 		margin-right: 20px;
 		display: inline-block;
 		width: 35px;
@@ -237,10 +239,10 @@ export default {
 			font-weight: bold;
 		}
 
-    &:last-child {
-      margin-right: 0;
+        &:last-child {
+            margin-right: 0;
+        }
     }
-  }
 }
 .footer {
   flex: none;

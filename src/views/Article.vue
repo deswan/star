@@ -1,7 +1,9 @@
 <template>
-    <div>
+    <div class="article">
         <header class="header">
-            <img src="../assets/star.png" alt="" class="header-img">
+            <router-link to="/">
+                <img src="../assets/star.png" alt="" class="header-img">
+            </router-link>
         </header>
         <section class="title">
             <h1 class="title-h1">{{article.title}}</h1>
@@ -34,14 +36,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.article{
+    max-width: 85%;
+    margin: auto;
+}
 .header{
     text-align: center;
     .header-img{
-        margin-top: 30px;
+        margin-top: 22px;
         width: 40px;
     }
 }
 .title{
+    font-size: 18px;
     max-width: 100%;
     width: 600px;
     margin: 60px auto;
@@ -49,16 +56,20 @@ export default {
         margin: 0;
     }
     .title-date{
-        // font-family: "PT Sans";
         text-align: right;
         margin: 0;
+        text-align: center;
+        margin-top: 10px;
     }
 }
 .body{
     max-width: 100%;
-    width: 600px;
-    margin: 80px auto 0;
+    width: 650px;
+    margin: 120px auto;
     text-align: left;
+    font-size: 18px;
+}
+.title-date{
     font-size: 16px;
 }
 .title-date-logo{
