@@ -1,7 +1,5 @@
-const {
-    resolve
-} = require('../../util');
 const pool = require('./pool')();
+const dayjs = require('dayjs');
 
 module.exports = {
 
@@ -27,9 +25,10 @@ module.exports = {
      */
     sortMD(mdList, field = 'create_time', order = 'desc'){
         let desc = order === 'desc';
+        let isTime = field.endsWith('_time');
         return [...mdList].sort((mdObj_a, mdObj_b) => {
-            let field_a = mdObj_a[field];
-            let field_b = mdObj_b[field];
+            let field_a = isTime ? dayjs(mdObj_a[field]) : mdObj_a[field];
+            let field_b = isTime ? dayjs(mdObj_b[field]) : mdObj_b[field];
             // if(field.endsWith('_time')){
             //     field_a = new Date(field_a).valueOf();
             //     field_b = new Date(field_b).valueOf();

@@ -1,5 +1,5 @@
 const path = require('path')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const { VueLoaderPlugin } = require('vue-loader')
 
@@ -60,32 +60,18 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: isProd
-          ? ExtractTextPlugin.extract({
-              use: [
-                {
-                  loader: 'css-loader',
-                  options: { minimize: true }
-                }
-              ],
-              fallback: 'vue-style-loader'
-            })
-          : ['vue-style-loader', 'css-loader?sourceMap']
+        use: [
+          !isProd ? 'vue-style-loader' : MiniCssExtractPlugin.loader,
+          'css-loader?sourceMap'
+        ]
       },
       {
         test: /\.scss$/,
-        use: isProd
-          ? ExtractTextPlugin.extract({
-              use: [
-                {
-                  loader: 'css-loader',
-                  options: { minimize: true }
-                },
-                'sass-loader'
-              ],
-              fallback: 'vue-style-loader'
-            })
-          : ['vue-style-loader', 'css-loader?sourceMap', 'sass-loader?sourceMap']
+        use: [
+          !isProd ? 'vue-style-loader' : MiniCssExtractPlugin.loader,
+          'css-loader?sourceMap',
+          'sass-loader?sourceMap'
+        ]
       },
     ]
   },
@@ -96,7 +82,7 @@ module.exports = {
   plugins: isProd
     ? [
         new VueLoaderPlugin(),
-        new ExtractTextPlugin({
+        new MiniCssExtractPlugin({
           filename: 'common.[chunkhash].css'
         })
       ]
