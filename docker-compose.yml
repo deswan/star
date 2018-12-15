@@ -4,8 +4,6 @@ services:
   web:
     build: 
       context: "."
-      args:
-        API_SERVICE_HOST: api
     image: "star-blog"
     ports:
       - "8080:8080"
@@ -20,7 +18,7 @@ services:
   api:
     build: 
       context: "."
-      dockerfile: "Dockerfile.api"
+      dockerfile: "api.Dockerfile"
     image: "star-blog-api"
     ports:
       - "8000:8000"
