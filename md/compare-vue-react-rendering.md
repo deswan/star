@@ -17,9 +17,7 @@ Vue的订阅式机制决定了它不仅知道哪些数据发生了更新，也�
 
 ![vue-push-rendering](https://blog-1253663928.cos.ap-guangzhou.myqcloud.com/vue-push-rendering.png)
 
-举个例子：
-
-子组件Child使用了props`value`进行渲染，父组件Parent将data`value`作为props传递给了子组件Child，一秒后更新data。
+举个例子：子组件Child使用了props`value`进行渲染，父组件Parent将data`value`作为props传递给了子组件Child，一秒后更新data。
 ```
 // Child.vue
 <script>

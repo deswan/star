@@ -34,13 +34,14 @@ a, a:link{
     p > code, li > code{
         background: #f7f7f7;
         padding: 5px;
+        margin: 0 5px;
         border-radius: 5px;
         font-family: "PT Mono", Consolas, Monaco, Menlo, "-apple-system", BlinkMacSystemFont,"微软雅黑", Verdana, Arial, Helvetica, sans-serif;
         word-break: break-all;
         color: #ca342e;
     }
     code{
-        font-size: 16px;
+        font-size: 14px;
     }
     img{
         display: block;

@@ -37,7 +37,7 @@ export default {
 
 <style lang="scss" scoped>
 .article{
-    max-width: 85%;
+    max-width: 90%;
     margin: auto;
 }
 .header{
@@ -53,6 +53,7 @@ export default {
     width: 600px;
     margin: 60px auto;
     .title-h1{
+        font-weight: normal;
         margin: 0;
     }
     .title-date{

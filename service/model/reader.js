@@ -57,6 +57,7 @@ async function readData() {
 
     await Promise.all(files.map(async (file) => {
         if (file.startsWith('.')) return;
+        if (process.env.NODE_ENV === 'production' && file.startsWith('test')) return;
         let filePath = path.join(config.markdownDir, file);
         if (!(await fs.stat(filePath)).isFile()) {
             return console.log(`${file} 不是文件！`);

@@ -158,7 +158,7 @@ export default {
 		font-size: 24px;
 		font-weight: normal;
 		margin: 0;
-    	color: #666;
+    	color: #333;
 
         &:hover{
                 color: #999;
