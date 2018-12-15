@@ -3,6 +3,8 @@ import App from './App.vue'
 import { createStore } from './store'
 import { createRouter } from './router'
 import { sync } from 'vuex-router-sync'
+import './assets/prism.js'
+import './assets/prism.css'
 import './index.scss'
 
 // Expose a factory function that creates a fresh set of store, router,

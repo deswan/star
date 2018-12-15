@@ -4,9 +4,13 @@ const path = require('path');
 const util = require('../../util');
 const chokidar = require('chokidar');
 const md_meta = require('markdown-meta')
+const prism = require('markdown-it-prism');
 var md = require('markdown-it')({
   linkify: true
-}).use(require('markdown-it-highlightjs'), {})
+})
+md.use(prism, {
+    defaultLanguage: 'javascript'
+});
 
 async function readFile(file) {
     let filePath = path.resolve(config.markdownDir, file);
