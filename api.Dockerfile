@@ -18,6 +18,4 @@ EXPOSE 8000
 
 ENV NODE_ENV production
 
-RUN yarn build && yarn cache clean
-
 CMD node service/index.js
