@@ -1,12 +1,16 @@
-FROM node:10
+FROM node:10-alpine
 
-RUN npm config set registry https://registry.npm.taobao.org
+USER root
+
+RUN npm config set registry http://registry.cnpmjs.org && npm config set unsafe-perm true
+
+RUN npm install -g cnpm
 
 RUN mkdir -p /home/node/app
 WORKDIR /home/node/app
 
 COPY package.json /home/node/app
-RUN npm install
+RUN cnpm install
 
 COPY . /home/node/app
 

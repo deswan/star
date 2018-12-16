@@ -25,6 +25,7 @@
     "markdown-it": "^8.4.2",
     "markdown-it-prism": "^2.0.1",
     "markdown-meta": "0.0.3",
+    "rimraf": "^2.6.2",
     "route-cache": "0.4.4",
     "vue": "^2.5.21",
     "vue-router": "^3.0.2",

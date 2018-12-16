@@ -6,7 +6,7 @@ services:
       context: "."
     image: "star-blog"
     ports:
-      - "8080:8080"
+      - "80:8080"
     depends_on:
       - api
     networks: 
@@ -24,6 +24,8 @@ services:
       - "8000:8000"
     networks: 
       - my_app
+    volumes:
+      - ./md:/home/node/app/md
 
 networks:
    my_app:
