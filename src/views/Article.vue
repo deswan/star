@@ -51,7 +51,7 @@ export default {
     font-size: 18px;
     max-width: 100%;
     width: 600px;
-    margin: 60px auto;
+    margin: 120px auto 0;
     .title-h1{
         font-weight: normal;
         margin: 0;
@@ -66,7 +66,8 @@ export default {
 .body{
     max-width: 100%;
     width: 650px;
-    margin: 120px auto;
+    margin: auto;
+    padding: 120px 0;
     text-align: left;
     font-size: 18px;
 }

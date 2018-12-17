@@ -18,6 +18,6 @@ EXPOSE 8080
 
 ENV NODE_ENV production
 
-RUN yarn build && yarn cache clean
+RUN npm run build
 
-CMD yarn start
+CMD npm start
