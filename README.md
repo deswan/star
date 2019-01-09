@@ -1,6 +1,8 @@
-# stat-vuecli2
+# star-blog
 
-> A Vue.js project
+> deswan`s personal blog powered by vue ssr
+
+http://desw.eczn.moe/
 
 ## Build Setup
 
@@ -26,5 +28,5 @@ npm test
 
 ## 以Docker方式启动服务
 ```bash 
-docker-compose up
+docker-compose up -d
 ```
