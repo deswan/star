@@ -16,20 +16,11 @@ async function readFile(file) {
     let filePath = path.resolve(config.markdownDir, file);
     let fileContent = await fs.readFile(filePath, 'utf-8');
     let meta = md_meta.parse(fileContent);
-    let document = md.render(filterMeta(fileContent));
+    let document = md.render(util.filterMeta(fileContent));
     return {
         meta,
         document
     }
-}
-
-/**
- * 过滤meta文本
- * @param {String} mdText markdown文本
- * @return {String} 
- */
-function filterMeta(mdText) {
-    return mdText.replace(/<!--\*([\s\S]*)\*-->/, '')
 }
 
 function watch(cb) {

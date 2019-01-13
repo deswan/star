@@ -8,6 +8,7 @@
     "dev": "node server",
     "start": "cross-env NODE_ENV=production node server",
     "server": "nodemon service/index.js",
+    "gen": "node scripts/generate_md.js",
     "test": "jest",
     "build": "rimraf dist && npm run build:client && npm run build:server",
     "build:client": "cross-env NODE_ENV=production webpack --config build/webpack.client.config.js --progress --hide-modules",
