@@ -22,3 +22,7 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw*
+
+.config.json
+images/*
+!images/.gitkeep
