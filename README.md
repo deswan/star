@@ -2,8 +2,6 @@
 
 > deswan`s personal blog powered by vue ssr
 
-http://desw.eczn.moe/
-
 ## Build Setup
 
 ``` bash
